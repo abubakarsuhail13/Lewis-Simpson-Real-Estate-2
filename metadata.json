@@ -1,0 +1,7 @@
+{
+  "name": "Lewis Simpson Real Estate 2",
+  "description": "A premium, conversion-focused property consultancy website for Lewis Simpson Real Estate, featuring smart property insights and a Gemini-powered investment assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
