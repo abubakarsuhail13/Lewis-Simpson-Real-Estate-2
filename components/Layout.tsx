@@ -11,22 +11,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-600">
-      {/* Top Bar - Clean Light */}
-      <div className="bg-slate-50 text-[10px] sm:text-[11px] py-2 px-6 flex justify-between items-center border-b border-slate-100">
-        <div className="flex items-center gap-6 text-slate-400 font-medium tracking-wide">
-          <span className="flex items-center gap-2 hover:text-amber-600 transition-colors cursor-pointer"><Phone className="w-3 h-3 text-amber-600" /> +44 (0) 20 7946 0888</span>
-          <span className="hidden sm:flex items-center gap-2 hover:text-amber-600 transition-colors cursor-pointer"><Mail className="w-3 h-3 text-amber-600" /> hq@lewissimpson.com</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={() => setShowPortal(true)}
-            className="flex items-center gap-2 text-slate-500 hover:text-amber-600 transition-colors uppercase tracking-[0.2em] font-bold text-[10px]"
-          >
-            <Lock className="w-3 h-3" /> Investor Portal
-          </button>
-        </div>
-      </div>
-
       {/* Navigation - Glass Light */}
       <header className="sticky top-0 z-40 glass-nav">
         <nav className="max-w-7xl mx-auto px-6 h-20 sm:h-24 flex items-center justify-between">
@@ -70,7 +54,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </nav>
       </header>
 
-      {/* Portal Modal - Modern Light */}
+      {/* Portal Modal - Modern Light (Still available if needed, though top entry is removed) */}
       <AnimatePresence>
         {showPortal && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-6">
@@ -228,7 +212,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
         </div>
         <div className="max-w-7xl mx-auto border-t border-slate-200 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase font-bold tracking-[0.2em] text-slate-400">
-          <p>© 2026 Lewis Simpson Real Estate. Excellence in Acquisition.</p>
+          <div className="flex flex-col gap-2">
+            <p>© 2026 Lewis Simpson Real Estate. Excellence in Acquisition.</p>
+            <p className="opacity-70 text-amber-600">Powered by Nexaforge Technologies</p>
+          </div>
           <div className="flex gap-8">
             <span className="hover:text-slate-900 cursor-pointer transition-colors">Privacy</span>
             <span className="hover:text-slate-900 cursor-pointer transition-colors">Terms</span>
