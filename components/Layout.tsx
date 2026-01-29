@@ -1,3 +1,4 @@
+// Removed SmartAssistant integration
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Building2, Facebook, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, Lock, ArrowRight } from 'lucide-react';
@@ -54,7 +55,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </nav>
       </header>
 
-      {/* Portal Modal - Modern Light (Still available if needed, though top entry is removed) */}
+      {/* Portal Modal (Kept for potential direct triggers) */}
       <AnimatePresence>
         {showPortal && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-6">
@@ -62,27 +63,27 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" 
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-md" 
               onClick={() => setShowPortal(false)} 
             />
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white w-full max-md p-10 sm:p-12 border border-slate-100 rounded-3xl shadow-2xl"
+              className="relative bg-white w-full max-w-md p-10 sm:p-12 border border-slate-100 rounded-3xl shadow-2xl"
             >
               <button onClick={() => setShowPortal(false)} className="absolute top-6 right-6 text-slate-300 hover:text-slate-900 transition-colors">
                 <X className="w-6 h-6" />
               </button>
               <h3 className="text-3xl font-serif font-bold text-slate-900 mb-2 tracking-tight">Investor Login</h3>
-              <p className="text-slate-500 mb-8 text-sm">Secure access to your private property portfolio.</p>
+              <p className="text-slate-500 mb-8 text-sm">Access your high-performance portfolio metrics.</p>
               <form className="space-y-6">
                 <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2 ml-1">Client ID</label>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2 ml-1">Client Identifier</label>
                   <input type="text" placeholder="LS-99203" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 outline-none focus:border-amber-600 focus:bg-white transition-all text-slate-900" />
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2 ml-1">Password</label>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2 ml-1">Security Key</label>
                   <input type="password" placeholder="••••••••" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 outline-none focus:border-amber-600 focus:bg-white transition-all text-slate-900" />
                 </div>
                 <button className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-amber-600 transition-all shadow-lg">Authorize Session</button>
@@ -92,7 +93,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Nav Overlay - Clean Light */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <div className="fixed inset-0 z-50 lg:hidden">
@@ -214,7 +214,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="max-w-7xl mx-auto border-t border-slate-200 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase font-bold tracking-[0.2em] text-slate-400">
           <div className="flex flex-col gap-2">
             <p>© 2026 Lewis Simpson Real Estate. Excellence in Acquisition.</p>
-            <p className="opacity-70 text-amber-600">Powered by Nexaforge Technologies</p>
+            <p className="opacity-70 text-amber-600">Enterprise Standard Architecture | Powered by Nexaforge Technologies</p>
           </div>
           <div className="flex gap-8">
             <span className="hover:text-slate-900 cursor-pointer transition-colors">Privacy</span>
