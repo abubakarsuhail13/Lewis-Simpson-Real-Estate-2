@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -11,94 +11,80 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
-      <section className="py-24 px-6 bg-slate-50">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+    <div className="bg-black">
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div>
-            <span className="text-blue-700 font-bold uppercase tracking-widest text-sm mb-4 block">Get In Touch</span>
-            <h1 className="text-5xl font-serif font-bold text-blue-950 mb-6">Let’s Start Your Property Journey</h1>
-            <p className="text-slate-600 text-lg mb-12 leading-relaxed">
-              Whether you’re investing, buying your next home, or just have a general enquiry, our expert team is here to help.
+            <span className="text-amber-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8 block">Inquire Today</span>
+            <h1 className="text-6xl md:text-8xl font-serif font-bold text-white mb-10 tracking-tighter leading-[0.85]">Secure Your<br/><span className="text-amber-500">Next Asset.</span></h1>
+            <p className="text-slate-500 text-xl mb-16 leading-relaxed font-medium">
+              Join elite investors who trust Lewis Simpson for strategic UK property intelligence.
             </p>
             
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-xl text-blue-700">
-                  <Phone className="w-6 h-6" />
+            <div className="space-y-12">
+              {[
+                { i: <Phone />, t: 'Priority Line', v: '+44 (0) 20 7946 0000' },
+                { i: <Mail />, t: 'Strategic Support', v: 'enquiry@lewissimpson.co.uk' },
+                { i: <MapPin />, t: 'Headquarters', v: 'One Mayfair Square, London, W1J 8HQ' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-8 group">
+                  <div className="w-16 h-16 bg-zinc-950 rounded border border-amber-500/20 flex items-center justify-center text-amber-500 group-hover:bg-amber-600 group-hover:text-black transition-all shadow-[0_0_20px_rgba(217,119,6,0.1)]">
+                    {/* Fixed TS error: Cast element to any to allow className prop in cloneElement */}
+                    {React.cloneElement(item.i as React.ReactElement<any>, { className: 'w-7 h-7' })}
+                  </div>
+                  <div>
+                    <h4 className="font-black text-[10px] text-amber-600/60 uppercase tracking-[0.3em] mb-1">{item.t}</h4>
+                    <p className="text-white font-bold text-xl">{item.v}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-blue-950">Call Us</h4>
-                  <p className="text-slate-500">+44 (0) 20 7946 0000</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-xl text-blue-700">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-blue-950">Email Us</h4>
-                  <p className="text-slate-500">enquiry@lewissimpsonrealestate.co.uk</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-xl text-blue-700">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-blue-950">UK Office</h4>
-                  <p className="text-slate-500">One Mayfair Square, London, W1J 8HQ</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          <div className="bg-white p-10 rounded-3xl shadow-2xl shadow-blue-900/10 border border-slate-100">
+          <div className="bg-zinc-950 p-16 rounded-2xl border border-amber-500/10 shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
             {submitted ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Send className="w-10 h-10" />
+              <div className="text-center py-24">
+                <div className="w-24 h-24 bg-amber-500 text-black rounded-full flex items-center justify-center mx-auto mb-10 shadow-[0_0_40px_rgba(217,119,6,0.3)]">
+                  <span className="flex items-center justify-center">
+                    <Send className="w-10 h-10" />
+                  </span>
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-blue-950 mb-2">Message Received!</h3>
-                <p className="text-slate-600">A member of our team will contact you within 24 hours.</p>
+                <h3 className="text-4xl font-serif font-bold text-white mb-4">Request Logged</h3>
+                <p className="text-slate-500 font-medium text-lg uppercase tracking-widest">A specialist will contact you shortly.</p>
                 <button 
                   onClick={() => setSubmitted(false)}
-                  className="mt-8 text-blue-700 font-bold hover:underline"
+                  className="mt-12 text-amber-500 font-black uppercase text-[10px] tracking-[0.3em] hover:text-white transition-all"
                 >
-                  Send another message
+                  Send another request
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">First Name</label>
-                    <input required type="text" className="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="John" />
+              <form onSubmit={handleSubmit} className="space-y-10">
+                <div className="grid md:grid-cols-2 gap-10">
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] ml-2">Name</label>
+                    <input required type="text" className="w-full bg-black border border-amber-500/20 rounded px-6 py-5 focus:outline-none focus:border-amber-500 transition-all text-white font-bold" placeholder="Full Name" />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Last Name</label>
-                    <input required type="text" className="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Doe" />
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] ml-2">Email</label>
+                    <input required type="email" className="w-full bg-black border border-amber-500/20 rounded px-6 py-5 focus:outline-none focus:border-amber-500 transition-all text-white font-bold" placeholder="investor@domain.com" />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Email Address</label>
-                  <input required type="email" className="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="john@example.com" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Enquiry Type</label>
-                  <select className="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600">
-                    <option>Property Investment</option>
-                    <option>Buying a Home</option>
-                    <option>Selling a Property</option>
-                    <option>Lettings & Management</option>
-                    <option>Other</option>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] ml-2">Objective</label>
+                  <select className="w-full bg-black border border-amber-500/20 rounded px-6 py-5 focus:outline-none focus:border-amber-500 transition-all text-white font-bold appearance-none cursor-pointer">
+                    <option>Strategic Investment</option>
+                    <option>Residential Acquisition</option>
+                    <option>Portfolio Management</option>
+                    <option>Other Enquiry</option>
                   </select>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Message</label>
-                  <textarea rows={4} className="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Tell us about your goals..."></textarea>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] ml-2">Briefing</label>
+                  <textarea rows={5} className="w-full bg-black border border-amber-500/20 rounded px-6 py-5 focus:outline-none focus:border-amber-500 transition-all text-white font-bold resize-none" placeholder="Primary investment goals..."></textarea>
                 </div>
-                <button type="submit" className="w-full bg-blue-900 text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/20 active:scale-95">
-                  Book Free Consultation
+                <button type="submit" className="w-full bg-amber-600 text-black font-black py-6 rounded uppercase tracking-[0.4em] text-xs hover:bg-amber-500 transition-all shadow-[0_10px_40px_rgba(217,119,6,0.2)]">
+                  Initiate Strategy Session
                 </button>
               </form>
             )}
@@ -106,21 +92,21 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="h-[400px] w-full bg-slate-200 relative overflow-hidden">
+      {/* Map Section */}
+      <section className="h-[500px] w-full bg-black relative overflow-hidden grayscale contrast-150 brightness-50">
         <img 
           src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2066&auto=format&fit=crop" 
-          className="w-full h-full object-cover grayscale opacity-50" 
-          alt="Map View"
+          className="w-full h-full object-cover" 
+          alt="Mayfair Map"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white/90 backdrop-blur px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3">
-            <div className="bg-blue-900 p-2 rounded-lg text-white">
-              <MapPin className="w-5 h-5" />
+        <div className="absolute inset-0 flex items-center justify-center grayscale-0">
+          <div className="bg-zinc-950 border border-amber-500/30 px-10 py-6 rounded shadow-2xl flex items-center gap-6">
+            <div className="bg-amber-600 p-3 rounded text-black">
+              <MapPin className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Our HQ</p>
-              <p className="text-blue-950 font-serif font-bold">One Mayfair, London</p>
+              <p className="text-[10px] font-black text-amber-600 uppercase tracking-[0.3em] mb-1">Global HQ</p>
+              <p className="text-white font-serif font-bold text-2xl tracking-tighter">One Mayfair, London</p>
             </div>
           </div>
         </div>

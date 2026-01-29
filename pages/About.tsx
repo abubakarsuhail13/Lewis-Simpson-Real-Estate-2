@@ -4,41 +4,43 @@ import { ShieldCheck, Users, Lightbulb, Handshake } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <div className="bg-white">
-      {/* Header */}
-      <section className="bg-slate-900 py-24 px-6 text-white text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Who We Are</h1>
-          <p className="text-slate-400 text-lg md:text-xl leading-relaxed">
-            Lewis Simpson Real Estate is a UK-focused property consultancy supporting investors and homebuyers at every stage of their property journey.
+    <div className="bg-black">
+      <section className="bg-zinc-950 py-32 px-6 border-b border-amber-500/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-6xl md:text-[100px] font-serif font-bold text-white mb-10 tracking-tighter">Twenty <br/><span className="text-amber-500">Years</span></h1>
+          <p className="text-slate-500 text-xl font-medium max-w-2xl mx-auto">
+            Lewis Simpson Real Estate is an institutional-grade consultancy serving high-performance property portfolios across the United Kingdom.
           </p>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1">
-            <img src="https://images.unsplash.com/photo-1573496130141-2097af01ce8e?q=80&w=2070&auto=format&fit=crop" className="rounded-3xl shadow-2xl" alt="Lewis Simpson" />
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+          <div className="relative group">
+            <div className="absolute inset-0 border border-amber-500/20 rounded translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-all duration-700" />
+            <img src="https://images.unsplash.com/photo-1573496130141-2097af01ce8e?q=80&w=2070&auto=format&fit=crop" className="relative rounded shadow-2xl filter grayscale brightness-90 contrast-125" alt="Consultancy" />
           </div>
-          <div className="order-1 lg:order-2">
-            <h2 className="text-3xl font-serif font-bold text-blue-950 mb-6">Over Two Decades of Property Insight</h2>
-            <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-              With over 20 years of industry experience, we have seen the market evolve. We provide more than just property listings; we provide expert insight, honest guidance, and carefully selected opportunities that align with your long-term goals.
+          <div>
+            <h2 className="text-5xl font-serif font-bold text-white mb-10 tracking-tight">Legacy of <br/><span className="text-amber-500">Excellence</span></h2>
+            <p className="text-slate-500 mb-10 text-lg leading-relaxed font-medium">
+              We provide more than property search; we deliver market intelligence. With over two decades of experience, we navigate UK housing cycles with absolute precision, identifying growth hubs before they hit the mainstream.
             </p>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              Our philosophy is simple: we believe property investment should be secure, stress-free, and profitable. We focus on transparency and long-term relationships over short-term wins.
+            <p className="text-slate-500 mb-16 leading-relaxed font-medium">
+              Our philosophy is rooted in institutional standards. We believe every acquisition should be backed by rigorous data and ethical transparency.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-8">
               {[
-                { icon: <ShieldCheck className="w-6 h-6 text-blue-600" />, label: 'Transparency' },
-                { icon: <Users className="w-6 h-6 text-blue-600" />, label: 'Relationships' },
-                { icon: <Lightbulb className="w-6 h-6 text-blue-600" />, label: 'Market Knowledge' },
-                { icon: <Handshake className="w-6 h-6 text-blue-600" />, label: 'Proven Results' },
+                { icon: <ShieldCheck />, label: 'Ethics' },
+                { icon: <Users />, label: 'Direct Support' },
+                { icon: <Lightbulb />, label: 'Yield Insight' },
+                { icon: <Handshake />, label: 'Capital Growth' },
               ].map((val, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
-                  {val.icon}
-                  <span className="font-bold text-blue-950 text-sm">{val.label}</span>
+                <div key={idx} className="flex items-center gap-5 p-6 bg-zinc-950 border border-amber-500/10 rounded group hover:border-amber-500/40 transition-all">
+                  <div className="text-amber-500 group-hover:scale-110 transition-transform">
+                    {/* Fixed TS error: Cast element to any to allow className prop in cloneElement */}
+                    {React.cloneElement(val.icon as React.ReactElement<any>, { className: 'w-6 h-6' })}
+                  </div>
+                  <span className="font-black text-white text-[10px] uppercase tracking-[0.2em]">{val.label}</span>
                 </div>
               ))}
             </div>
@@ -46,24 +48,21 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Values */}
-      <section className="bg-slate-50 py-24 px-6">
+      <section className="bg-zinc-950 py-32 px-6 border-t border-amber-500/10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-blue-950 mb-4">Our Core Values</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Built on ethics and performance, our values drive every decision we make for our clients.
-            </p>
+          <div className="text-center mb-24">
+            <h2 className="text-5xl font-serif font-bold text-white mb-6">Core Values</h2>
+            <p className="text-amber-500 font-black uppercase text-[10px] tracking-[0.4em]">The pillars of our consultancy</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {[
-              { title: 'Excellence', desc: 'We settle for nothing less than the best properties and results for our clients.' },
-              { title: 'Integrity', desc: 'Honest, ethical guidance is at the heart of our consultancy services.' },
-              { title: 'Innovation', desc: 'Leveraging data and technology to find the next UK growth hubs before the market.' },
+              { title: 'Excellence', desc: 'Institutional standards applied to every individual client portfolio.' },
+              { title: 'Integrity', desc: 'Absolute transparency in data reporting and asset performance.' },
+              { title: 'Alpha', desc: 'Leveraging proprietary market intelligence to find early-stage growth.' },
             ].map((value, idx) => (
-              <div key={idx} className="bg-white p-10 rounded-2xl shadow-sm border border-slate-200">
-                <h3 className="text-2xl font-serif font-bold text-blue-900 mb-4">{value.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{value.desc}</p>
+              <div key={idx} className="bg-black p-12 rounded border border-amber-500/10 hover:border-amber-500 transition-all group">
+                <h3 className="text-3xl font-serif font-bold text-amber-500 mb-6 tracking-tight group-hover:text-white transition-colors">{value.title}</h3>
+                <p className="text-slate-500 leading-relaxed font-medium text-sm">{value.desc}</p>
               </div>
             ))}
           </div>
