@@ -3,35 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lewis Simpson Real Estate | Luxury UK Property Investment</title>
+  <title>Lewis Simpson Real Estate | Luxury UK Investment</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --gold: #d97706;
+      --slate-50: #f8fafc;
+      --slate-900: #0f172a;
+    }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #000;
+      background-color: #ffffff;
+      color: #475569;
     }
     h1, h2, h3, .font-serif {
       font-family: 'Playfair Display', serif;
+      color: var(--slate-900);
     }
-    .gradient-overlay {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+    .text-gold { color: var(--gold); }
+    .bg-gold { background-color: var(--gold); }
+    .border-gold { border-color: var(--gold); }
+    
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-    ::selection {
-      background: #d97706;
-      color: #000;
+    
+    .hero-gradient-light {
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%);
     }
-    ::-webkit-scrollbar {
-      width: 8px;
+
+    /* Custom Scrollbar for Light Mode */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; border: 2px solid #f1f5f9; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    .card-shadow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     }
-    ::-webkit-scrollbar-track {
-      background: #000;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #d97706;
-      border-radius: 10px;
+    .card-shadow-hover:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
     }
   </style>
 <script type="importmap">
@@ -40,16 +57,17 @@
     "react": "https://esm.sh/react@18.3.1",
     "react-dom": "https://esm.sh/react-dom@18.3.1",
     "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.474.0?external=react",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?external=react,react-dom",
-    "framer-motion": "https://esm.sh/framer-motion@11.0.8?external=react,react-dom",
+    "lucide-react": "https://esm.sh/lucide-react@0.474.0?deps=react@18.3.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.3.1,react-dom@18.3.1",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.8?deps=react@18.3.1,react-dom@18.3.1",
     "react/": "https://esm.sh/react@18.3.1/",
-    "react-dom/": "https://esm.sh/react-dom@18.3.1/"
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
   }
 }
 </script>
 </head>
-<body class="bg-black text-slate-300 antialiased">
+<body class="antialiased selection:bg-amber-100 selection:text-amber-900">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
