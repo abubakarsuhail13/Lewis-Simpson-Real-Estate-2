@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Building2, Facebook, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, Lock, ArrowRight } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import SmartAssistant from './SmartAssistant';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -87,7 +85,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white w-full max-w-md p-10 sm:p-12 border border-slate-100 rounded-3xl shadow-2xl"
+              className="relative bg-white w-full max-md p-10 sm:p-12 border border-slate-100 rounded-3xl shadow-2xl"
             >
               <button onClick={() => setShowPortal(false)} className="absolute top-6 right-6 text-slate-300 hover:text-slate-900 transition-colors">
                 <X className="w-6 h-6" />
@@ -165,8 +163,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       <main className="flex-1">
         {children}
-        {/* Integrating the AI Smart Assistant */}
-        <SmartAssistant />
       </main>
 
       {/* Footer - Sophisticated Light */}
@@ -177,7 +173,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <Building2 className="w-9 h-9 text-amber-600" />
               <div className="flex flex-col">
                 <span className="text-2xl font-serif font-bold text-slate-900 leading-none">LEWIS SIMPSON</span>
-                <span className="text-[10px] tracking-[0.3em] font-black text-amber-600 uppercase mt-1">Real Estate</span>
+                <span className="text-[9px] tracking-[0.3em] font-black text-amber-600 uppercase mt-1">Real Estate</span>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-8 font-medium text-slate-500">

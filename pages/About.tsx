@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Users, Lightbulb, Handshake } from 'lucide-react';
+import { ShieldCheck, Users, Lightbulb, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
@@ -38,7 +38,7 @@ const About: React.FC = () => {
                 { icon: <ShieldCheck />, label: 'Ethics' },
                 { icon: <Users />, label: 'Direct Support' },
                 { icon: <Lightbulb />, label: 'Yield Insight' },
-                { icon: <Handshake />, label: 'Capital Growth' },
+                { icon: <Award />, label: 'Capital Growth' },
               ].map((val, idx) => (
                 <div key={idx} className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-2xl group hover:border-amber-600/40 transition-all shadow-sm">
                   <div className="text-amber-600 group-hover:scale-110 transition-transform">
